@@ -1,21 +1,34 @@
+import java.util.ArrayList;
+
 public class Client {
 
 
+
+    //region attribus privés
     private String nom;
     private String prenom;
     private String adresse;
+    private String codepostale;
     private String telephone;
+    private String email;
     private String datenaissance;
+    private ArrayList<Compte> listeCompte = new ArrayList<Compte>
+    //endregion
 
-
-    public Client(String nom, String prenom, String adresse, String téléphone, String datenaissance) {
+    //region Constructeur
+    public Client(String nom, String prenom, String adresse, String codepostale, String telephone, String email, String datenaissance) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
-        this.telephone = téléphone;
+        this.codepostale = codepostale;
+        this.telephone = telephone;
+        this.email = email;
         this.datenaissance = datenaissance;
     }
 
+    //endregion
+
+    //region Accesseurs en Lecture
     public String getNom() {
         return nom;
     }
@@ -36,7 +49,21 @@ public class Client {
         return datenaissance;
     }
 
+    public String getCodepostale() {
+        return codepostale;
+    }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    //endregion
+
+    //region Accesseurs en Ecriture
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -57,11 +84,27 @@ public class Client {
         this.datenaissance = datenaissance;
     }
 
+    public void setCodepostale(String codepostale) {
+        this.codepostale = codepostale;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    //endregion
+
+
+    //region Fonctions
     public String toString(){
         String UnClient;
         UnClient =( " Nom : " + nom + " Prenom : " + prenom + " Adresse : " + adresse + " Telephone : " + telephone + "Date de naissance" + datenaissance);
         return UnClient;
     }
+    //endregion
 
 
 }

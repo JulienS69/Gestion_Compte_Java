@@ -3,13 +3,18 @@ import java.util.StringJoiner;
 public class CompteEpargne extends Compte
 {
 
+    //region Attributs privé
     private double tauxInterets;
+    //endregion
 
+    //region Constructeur
     public CompteEpargne(String numero, String Titulaire, double solde, double tauxInterets) {
         super(numero, Titulaire, solde);
         this.tauxInterets = tauxInterets;
     }
+    //endregion
 
+    //region Fonctions
     public double getTauxInterets() {
         return tauxInterets;
     }
@@ -28,5 +33,5 @@ public class CompteEpargne extends Compte
         UnCompteEpargne =( " Numero : " + _numero + " Nom_Titulaire : " + _nomtitulaire + " Solde : " + _solde + " Taux Interets : " + tauxInterets);
         return UnCompteEpargne;
     }
-
+    //endregion
 }
