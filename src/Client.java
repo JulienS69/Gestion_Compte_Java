@@ -1,110 +1,130 @@
+
+	/*Classe Client.
+        Auteur : B. CHATAING.
+        Date de création 03/02/2020
+		Date de modification :
+        Cette classe permet de créer un compte et de le gérer facilement,
+        il est possible de déposer ou de retirer de l'argent du compte.
+        */
+/// <summary>
+/// Classe Client. Modélise un client de la banque.
+/// </summary>
+
 import java.util.ArrayList;
 
 public class Client {
 
 
+    private String _numero;
+    private String _nom;
+    private String _prenom;
+    private String _rue;
+    private String _codePostal;
+    private String _ville;
+    private String _mobile;
+    private String _email;
+    private ArrayList<Compte> listeCompte;
 
-    //region attribus privés
-    private String nom;
-    private String prenom;
-    private String adresse;
-    private String codepostale;
-    private String telephone;
-    private String email;
-    private String datenaissance;
-    private ArrayList<Compte> listeCompte = new ArrayList<Compte>
-    //endregion
-
-    //region Constructeur
-    public Client(String nom, String prenom, String adresse, String codepostale, String telephone, String email, String datenaissance) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.adresse = adresse;
-        this.codepostale = codepostale;
-        this.telephone = telephone;
-        this.email = email;
-        this.datenaissance = datenaissance;
+    public Client(String numero, String nom, String prenom, String rue, String codePostal, String ville, String mobile, String email) {
+        _numero = numero;
+        _nom = nom;
+        _prenom = prenom;
+        _rue = rue;
+        _codePostal = codePostal;
+        _ville = ville;
+        _mobile = mobile;
+        _email = email;
+        listeCompte = new ArrayList<Compte>();
     }
 
-    //endregion
-
-    //region Accesseurs en Lecture
-    public String getNom() {
-        return nom;
+    public String get_numero() {
+        return _numero;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public void set_numero(String _numero) {
+        this._numero = _numero;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String get_nom() {
+        return _nom;
     }
 
-    public String getTéléphone() {
-        return telephone;
+    public void set_nom(String _nom) {
+        this._nom = _nom;
     }
 
-    public String getDatenaissance() {
-        return datenaissance;
+    public String get_prenom() {
+        return _prenom;
     }
 
-    public String getCodepostale() {
-        return codepostale;
+    public void set_prenom(String _prenom) {
+        this._prenom = _prenom;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String get_rue() {
+        return _rue;
     }
 
-    public String getEmail() {
-        return email;
+    public void set_rue(String _rue) {
+        this._rue = _rue;
     }
 
-    //endregion
-
-    //region Accesseurs en Ecriture
-    public void setNom(String nom) {
-        this.nom = nom;
+    public String get_codePostal() {
+        return _codePostal;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void set_codePostal(String _codePostal) {
+        this._codePostal = _codePostal;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public String get_ville() {
+        return _ville;
     }
 
-    public void setTéléphone(String téléphone) {
-        this.telephone = téléphone;
+    public void set_ville(String _ville) {
+        this._ville = _ville;
     }
 
-    public void setDatenaissance(String datenaissance) {
-        this.datenaissance = datenaissance;
+    public String get_mobile() {
+        return _mobile;
     }
 
-    public void setCodepostale(String codepostale) {
-        this.codepostale = codepostale;
+    public void set_mobile(String _mobile) {
+        this._mobile = _mobile;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public String get_email() {
+        return _email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void set_email(String _email) {
+        this._email = _email;
     }
-    //endregion
 
-
-    //region Fonctions
-    public String toString(){
-        String UnClient;
-        UnClient =( " Nom : " + nom + " Prenom : " + prenom + " Adresse : " + adresse + " Telephone : " + telephone + "Date de naissance" + datenaissance);
-        return UnClient;
+    public void AjouterCompte(Compte compte){
+        listeCompte.add(compte);
     }
-    //endregion
 
+    public void RetirerCompte(Compte compte){
+        listeCompte.remove(compte);
+    }
 
+    public void transfererArgent(Compte compte1, Compte compte2, Double montant){
+        compte1.deposer(montant);
+        compte2.retirer(montant);
+    }
+
+    @Override
+    public String toString() {
+        return "Client" +
+                "_numero='" + _numero + '\'' +
+                ", _nom='" + _nom + '\'' +
+                ", _prenom='" + _prenom + '\'' +
+                ", _rue='" + _rue + '\'' +
+                ", _codePostal='" + _codePostal + '\'' +
+                ", _ville='" + _ville + '\'' +
+                ", _mobile='" + _mobile + '\'' +
+                ", _email='" + _email + '\'' +
+                ", listeCompte=" + listeCompte;
+    }
 }
